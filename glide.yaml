@@ -1,0 +1,13 @@
+package: TaskApp
+import:
+- package: github.com/boltdb/bolt
+  version: ^1.3.1
+- package: github.com/spf13/cobra
+  version: ^0.0.1
+  subpackages:
+  - cobra
+- package: github.com/mitchellh/go-homedir
+- package: github.com/asdine/storm
+  version: ^2.0.2
+- package: github.com/coreos/bbolt
+  version: ^1.3.1-coreos.6

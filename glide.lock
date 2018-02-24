@@ -1,0 +1,30 @@
+hash: 3f5bb22f9edf305a15b407a86d4872bfade957f01538af85c49c060b8bde50b5
+updated: 2018-02-24T16:58:07.014687+02:00
+imports:
+- name: github.com/asdine/storm
+  version: 68fc73b635f890fe7ba2f3b15ce80c85b28a744f
+  subpackages:
+  - codec
+  - codec/json
+  - index
+  - internal
+  - q
+- name: github.com/boltdb/bolt
+  version: 2f1ce7a837dcb8da3ec595b1dac9d0632f0f99e8
+- name: github.com/coreos/bbolt
+  version: 48ea1b39c25fc1bab3506fbc712ecbaa842c4d2d
+- name: github.com/inconshreveable/mousetrap
+  version: 76626ae9c91c4f2a10f34cad8ce83ea42c93bb75
+- name: github.com/mitchellh/go-homedir
+  version: b8bc1bf767474819792c23f32d8286a45736f1c6
+- name: github.com/spf13/cobra
+  version: 7b2c5ac9fc04fc5efafb60700713d4fa609b777b
+  subpackages:
+  - cobra
+- name: github.com/spf13/pflag
+  version: 4c012f6dcd9546820e378d0bdda4d8fc772cdfea
+- name: golang.org/x/sys
+  version: 3dbebcf8efb6a5011a60c2b4591c1022a759af8a
+  subpackages:
+  - unix
+testImports: []
