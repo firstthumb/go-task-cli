@@ -11,7 +11,7 @@ var listCmd = &cobra.Command{
 	Short: "Lists all of your tasks",
 	Run: func(cmd *cobra.Command, args []string) {
 		database, _ := getDB()
-		tasks, err := database.AllTasks()
+		tasks, err := database.FindAll()
 		if err != nil {
 			fmt.Println("Something went wrong:", err)
 			os.Exit(1)

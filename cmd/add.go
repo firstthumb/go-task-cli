@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/spf13/cobra"
 	"strings"
+	"TaskApp/entity"
 )
 
 var addCmd = &cobra.Command{
@@ -12,7 +13,7 @@ var addCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		database, _ := getDB()
 		task := strings.Join(args, " ")
-		taskId, err := database.CreateTask(task)
+		taskId, err := database.Store(&entity.Task{Value: task})
 		if err != nil {
 			fmt.Println("Something went wrong", err)
 			return

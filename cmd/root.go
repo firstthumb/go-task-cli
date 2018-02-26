@@ -4,7 +4,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/mitchellh/go-homedir"
 	"path/filepath"
-	"TaskApp/db"
+	"TaskApp/repository"
 )
 
 var RootCmd = &cobra.Command{
@@ -12,8 +12,8 @@ var RootCmd = &cobra.Command{
 	Short: "Task is a CLI task manager",
 }
 
-func getDB() (*db.StormDB, error) {
+func getDB() (*repository.StormDB, error) {
 	home, _ := homedir.Dir()
 	dbPath := filepath.Join(home, "tasks.db")
-	return db.Init(dbPath)
+	return repository.Init(dbPath)
 }
