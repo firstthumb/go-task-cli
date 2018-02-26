@@ -20,3 +20,11 @@ func (srv *TaskServiceImpl) Create(task *entity.Task) (int, error) {
 func (srv *TaskServiceImpl) GetAll() ([]*entity.Task, error) {
 	return srv.repo.FindAll()
 }
+
+func (srv *TaskServiceImpl) Get(id int) (*entity.Task, error) {
+	return srv.repo.Find(id)
+}
+
+func (srv *TaskServiceImpl) Delete(id int) (*entity.Task, error) {
+	return srv.repo.Delete(id)
+}

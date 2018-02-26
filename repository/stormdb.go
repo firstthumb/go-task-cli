@@ -31,6 +31,18 @@ func Init(dbPath string) (*StormDB, error) {
 	return s, nil
 }
 
+func (db *StormDB) Find(id int) (*entity.Task, error) {
+	defer db.Close()
+
+	var task entity.Task
+	err := db.c.One("ID", id, &task)
+	if err != nil {
+		return nil, err
+	}
+
+	return &task, nil
+}
+
 func (db *StormDB) FindAll() ([]*entity.Task, error) {
 	defer db.Close()
 
@@ -53,6 +65,22 @@ func (db *StormDB) Store(task *entity.Task) (int, error) {
 	}
 
 	return task.ID, nil
+}
+
+func (db *StormDB) Delete(id int) (*entity.Task, error) {
+	defer db.Close()
+
+	var task entity.Task
+	err := db.c.One("ID", id, &task)
+	if err != nil {
+		return nil, err
+	}
+	err = db.c.DeleteStruct(&task)
+	if err != nil {
+		return nil, err
+	}
+
+	return &task, nil
 }
 
 func (db *StormDB) Close() {
