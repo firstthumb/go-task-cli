@@ -11,8 +11,12 @@ type StormDB struct {
 	c *storm.DB
 }
 
-func newStormDB(dbPath string) Repository {
-	db, _ := Init(dbPath)
+func NewStormDBRepository(dbPath string) Repository {
+	db, err := Init(dbPath)
+	if err != nil {
+		panic("Could not create StormDB")
+	}
+
 	return db
 }
 
@@ -35,6 +39,7 @@ func (db *StormDB) FindAll() ([]*entity.Task, error) {
 	if err != nil {
 		return nil, err
 	}
+
 	return tasks, nil
 }
 
@@ -46,6 +51,7 @@ func (db *StormDB) Store(task *entity.Task) (int, error) {
 		fmt.Print("Error : ", err.Error())
 		return -1, err
 	}
+
 	return task.ID, nil
 }
 
